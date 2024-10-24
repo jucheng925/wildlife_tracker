@@ -1,13 +1,14 @@
-# React + Vite
+## WildLife Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React single-page application showcasing reported sightings of the ten rarest and most elusive wild animals, displayed on an interactive map (Leaflet).
 
-Currently, two official plugins are available:
+# How to started
+Run 'npm install' followed by 'npm run dev' to run the app on local environment.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Data obtained
+Reported sighting data taken from the Global Biodiversity Information Facility (GBIF API)
 
+Used ChatGPT to determine which the top ten rarest and most elusive wild animals.
 
-
-GBIF API: https://api.gbif.org/v1/occurrence/search?scientificName=Loxodonta+africana&limit=100
-Need to change the scientificName, limit is a max of 300.
+# Future Contributions
+Currently I do not have any plans to continue with this project. This was a mini project that I wanted to created to learn and practice using Leaflet. 
