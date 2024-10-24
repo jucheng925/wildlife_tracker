@@ -9,21 +9,9 @@ import './App.css'
 import AnimalCards from './AnimalCards'
 
 function App() {
-  const [selected, setSelected] = useState("")
-  const markers = [
-    {
-      geocode: [48.06, 2.3522],
-      popUp: "Hello, I am popup 1"
-    },
-    {
-      geocode: [48.16, 2.3422],
-      popUp: "Hello, I am popup 2"
-    },
-    {
-      geocode: [48.22, 2.3312],
-      popUp: "Hello, I am popup 3"
-    }
-  ]
+  const [showMap, setShowMap] = useState(false)
+  const [selectedMarkers, setSelectedMarkers] = useState([])
+
 
   const customIcon = new Icon({
     iconUrl: location, 
@@ -44,8 +32,14 @@ function App() {
         <h1>WildLife Tracker</h1>
         <h2>The 10 Rarest and Most Elusive Wild Animals</h2>
       </div>
-      <AnimalCards/>
-      <MapContainer center={[48, 2.35]} zoom={13}>
+
+      <AnimalCards 
+        setShowMap={setShowMap} 
+        showMap={showMap}
+        setSelectedMarkers={setSelectedMarkers}
+      />
+
+      <MapContainer center={[0, 0]} zoom={3}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -54,13 +48,29 @@ function App() {
           chunkedLoading
           iconCreateFunction={createCustomClusterIcon}
         >
-        {markers.map(marker => (
-          <Marker position={marker.geocode} icon={customIcon}>
-            <Popup>
-              {marker.popUp}
-            </Popup>
-          </Marker>
-        ))}
+
+        {selectedMarkers.length > 0 && (
+          selectedMarkers.map((result, index) => {
+            const {decimalLatitude, decimalLongitude, eventDate } = result;
+
+            if (decimalLatitude !== undefined && decimalLongitude !== undefined) {
+              return (
+                <Marker 
+                  key={index}
+                  position={[decimalLatitude, decimalLongitude]}
+                  icon={customIcon}
+                >
+                  <Popup>
+                    <p>Sighted on {eventDate || "Unknown date"}</p>
+                  </Popup>
+                </Marker>
+              );
+            } else {
+              console.warn(`Invalid coordinates for marker at index ${index}`);
+              return null; // Skip rendering this marker if coordinates are invalid
+            }
+          })
+        )}
         </MarkerClusterGroup>
       </MapContainer>
     </>
