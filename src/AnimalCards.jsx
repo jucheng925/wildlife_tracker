@@ -4,13 +4,10 @@ import AnimalCard from './AnimalCard'
 
 const AnimalCards = () => {
   return (
-    <div>
-      <p>Pick an animal for more info</p>
-      <div className='cards-container'>
+    <div className='cards-container'>
       {animals.map(animal=> 
         <AnimalCard key={animal.name} animal={animal}/> 
       )}
-      </div>
     </div>
   )
 }

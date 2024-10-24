@@ -40,7 +40,10 @@ function App() {
 
   return (
     <>
-      <h1>WildLife Tracker</h1>
+      <div className='heading'>
+        <h1>WildLife Tracker</h1>
+        <h2>The 10 Rarest and Most Elusive Wild Animals</h2>
+      </div>
       <AnimalCards/>
       <MapContainer center={[48, 2.35]} zoom={13}>
         <TileLayer
