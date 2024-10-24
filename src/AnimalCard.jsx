@@ -1,11 +1,10 @@
 import React, {useState} from 'react'
 
-const AnimalCard = ({animal, setShowMap, showMap, setSelectedMarkers}) => {
+const AnimalCard = ({animal, setSelectedMarkers}) => {
   
   const regionsLived = animal.region.join(", ")
 
   const handleClick = ()=> {
-    setShowMap(!showMap)
     fetchMarkers();
   }
 

@@ -2,15 +2,13 @@ import React from 'react'
 import { animals } from './data/animal'
 import AnimalCard from './AnimalCard'
 
-const AnimalCards = ({setShowMap, showMap, setSelectedMarkers}) => {
+const AnimalCards = ({setSelectedMarkers}) => {
   return (
-    <div className='cards-container'>
+    <div className="cards-container">
       {animals.map(animal=> 
         <AnimalCard 
           key={animal.name} 
           animal={animal}
-          showMap={showMap}
-          setShowMap={setShowMap}
           setSelectedMarkers={setSelectedMarkers}
         /> 
       )}

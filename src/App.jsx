@@ -9,7 +9,6 @@ import './App.css'
 import AnimalCards from './AnimalCards'
 
 function App() {
-  const [showMap, setShowMap] = useState(false)
   const [selectedMarkers, setSelectedMarkers] = useState([])
 
 
@@ -18,13 +17,12 @@ function App() {
     iconSize: [38, 38] //size of the icon
   })
 
-  const createCustomClusterIcon = (cluster) => {
-    return new divIcon({
-      html: `<div class="cluster-icon">${cluster.getChildCount()}</div>`,
-      // className: "custom-maker-cluster",
-      iconSize: point(33, 33, true)
-    })
-  }
+  // const createCustomClusterIcon = (cluster) => {
+  //   return new divIcon({
+  //     html: `<div class="cluster-icon">${cluster.getChildCount()}</div>`,
+  //     iconSize: point(33, 33, true)
+  //   })
+  // }
 
   return (
     <>
@@ -33,9 +31,8 @@ function App() {
         <h2>The 10 Rarest and Most Elusive Wild Animals</h2>
       </div>
 
+      <div className='container'>
       <AnimalCards 
-        setShowMap={setShowMap} 
-        showMap={showMap}
         setSelectedMarkers={setSelectedMarkers}
       />
 
@@ -46,7 +43,7 @@ function App() {
         />
         <MarkerClusterGroup
           chunkedLoading
-          iconCreateFunction={createCustomClusterIcon}
+          // iconCreateFunction={createCustomClusterIcon}
         >
 
         {selectedMarkers.length > 0 && (
@@ -73,6 +70,7 @@ function App() {
         )}
         </MarkerClusterGroup>
       </MapContainer>
+      </div>
     </>
   )
 }
