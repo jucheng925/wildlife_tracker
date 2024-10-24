@@ -9,6 +9,7 @@ import './App.css'
 import AnimalCards from './AnimalCards'
 
 function App() {
+  const [selected, setSelected] = useState("")
   const markers = [
     {
       geocode: [48.06, 2.3522],
