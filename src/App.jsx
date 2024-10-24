@@ -2,10 +2,11 @@ import { useState } from 'react'
 import marker2 from './assets/marker2.png'
 import { MapContainer, Marker, TileLayer, Popup } from 'react-leaflet'
 import MarkerClusterGroup from 'react-leaflet-cluster'
+import { Icon, divIcon, point } from 'leaflet'
 
 import 'leaflet/dist/leaflet.css'
 import './App.css'
-import { Icon, divIcon, point } from 'leaflet'
+import AnimalCards from './AnimalCards'
 
 function App() {
   const markers = [
@@ -39,6 +40,7 @@ function App() {
   return (
     <>
       <h1>WildLife Tracker</h1>
+      <AnimalCards/>
       <MapContainer center={[48, 2.35]} zoom={13}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

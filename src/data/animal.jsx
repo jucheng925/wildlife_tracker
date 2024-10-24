@@ -1,4 +1,4 @@
-const animals = [
+export const animals = [
   {
     name: "Amur Leopard",
     species: "Panthera Pardus Orientalis",
