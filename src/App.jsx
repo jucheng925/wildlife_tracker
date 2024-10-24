@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import marker2 from './assets/marker2.png'
+import location from './assets/location.png'
 import { MapContainer, Marker, TileLayer, Popup } from 'react-leaflet'
 import MarkerClusterGroup from 'react-leaflet-cluster'
 import { Icon, divIcon, point } from 'leaflet'
@@ -25,7 +25,7 @@ function App() {
   ]
 
   const customIcon = new Icon({
-    iconUrl: marker2, 
+    iconUrl: location, 
     iconSize: [38, 38] //size of the icon
   })
 
